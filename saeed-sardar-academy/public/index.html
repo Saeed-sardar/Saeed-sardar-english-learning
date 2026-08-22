@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saeed Sardar English Language Learning Academy</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <img id="customLogo" src="https://via.placeholder.com/80?text=Logo" alt="Academy Logo" class="logo">
+        <h1 id="academyTitle">Saeed Sardar English Language Learning Academy</h1>
+    </header>
+
+    <div class="container">
+        <!-- Login Form -->
+        <div id="loginCard" class="card">
+            <h2>Account Login</h2>
+            <form id="loginForm">
+                <input type="email" id="loginEmail" placeholder="Email Address" required>
+                <input type="password" id="loginPassword" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+            <p>Don't have an account? <a href="#" id="showRegister">Register Here</a></p>
+        </div>
+
+        <!-- Multi-Step Registration Form -->
+        <div id="registerCard" class="card hidden">
+            <h2>Student Registration</h2>
+            
+            <!-- Step 1 -->
+            <form id="step1Form">
+                <h3>Step 1: Personal Details</h3>
+                <input type="text" id="regFirstName" placeholder="First Name" required>
+                <input type="text" id="regLastName" placeholder="Last Name" required>
+                <input type="email" id="regEmail" placeholder="Email Address" required>
+                <input type="password" id="regPassword" placeholder="Password" required>
+                <button type="submit">Next (Send Email OTP)</button>
+            </form>
+
+            <!-- Step 2 -->
+            <form id="step2Form" class="hidden">
+                <h3>Step 2: Email Verification & Phone</h3>
+                <p id="emailOtpNotice" class="info-text"></p>
+                <input type="text" id="emailOtp" placeholder="Enter Email 6-Digit OTP" required>
+                <input type="tel" id="regPhone" placeholder="Phone Number (+92...)" required>
+                <button type="submit">Next (Send SMS OTP)</button>
+            </form>
+
+            <!-- Step 3 -->
+            <form id="step3Form" class="hidden">
+                <h3>Step 3: Phone Verification</h3>
+                <p id="phoneOtpNotice" class="info-text"></p>
+                <input type="text" id="phoneOtp" placeholder="Enter SMS 6-Digit OTP" required>
+                <button type="submit">Finish & Activate Account</button>
+            </form>
+
+            <p>Already registered? <a href="#" id="showLogin">Login Here</a></p>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
