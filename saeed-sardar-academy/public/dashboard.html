@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Saeed Sardar English Academy</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <h1 id="headerTitle">Saeed Sardar English Language Learning Academy</h1>
+        <button id="logoutBtn" class="logout-btn">Logout</button>
+    </header>
+
+    <!-- Customization Panel for Admin / User -->
+    <section class="customizer-panel">
+        <h3>Customization Settings</h3>
+        <input type="text" id="editTitleInput" placeholder="Update Academy Name">
+        <input type="text" id="editLogoInput" placeholder="Update Logo Image URL">
+        <button id="saveCustomizationBtn">Save Changes</button>
+    </section>
+
+    <main class="content-container">
+        <h2>Welcome to Your English Masterclass</h2>
+
+        <!-- Tenses Module -->
+        <section class="module-card">
+            <h3> Complete English Tenses Guide</h3>
+            <div class="grid-layout">
+                <div class="tense-box">
+                    <h4>Present Tense</h4>
+                    <ul>
+                        <li><b>Simple Present:</b> I study English daily.</li>
+                        <li><b>Present Continuous:</b> I am studying grammar now.</li>
+                        <li><b>Present Perfect:</b> I have completed the lesson.</li>
+                        <li><b>Present Perfect Continuous:</b> I have been practicing for 2 hours.</li>
+                    </ul>
+                </div>
+                <div class="tense-box">
+                    <h4>Past Tense</h4>
+                    <ul>
+                        <li><b>Simple Past:</b> I studied grammar yesterday.</li>
+                        <li><b>Past Continuous:</b> I was reading a book.</li>
+                        <li><b>Past Perfect:</b> I had finished before he arrived.</li>
+                        <li><b>Past Perfect Continuous:</b> I had been waiting.</li>
+                    </ul>
+                </div>
+                <div class="tense-box">
+                    <h4>Future Tense</h4>
+                    <ul>
+                        <li><b>Simple Future:</b> I will learn English.</li>
+                        <li><b>Future Continuous:</b> I will be practicing tomorrow.</li>
+                        <li><b>Future Perfect:</b> I will have completed the course.</li>
+                        <li><b>Future Perfect Continuous:</b> I will have been learning.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Grammar Rules Module -->
+        <section class="module-card">
+            <h3> Advanced Grammar & Sentence Building</h3>
+            <ul>
+                <li><b>Parts of Speech:</b> Nouns, Pronouns, Verbs, Adjectives, Adverbs, Prepositions, Conjunctions, Interjections.</li>
+                <li><b>Active & Passive Voice:</b> Active: "Saeed teaches English." | Passive: "English is taught by Saeed."</li>
+                <li><b>Direct & Indirect Speech:</b> Direct: He said, "I am learning." | Indirect: He said that he was learning.</li>
+            </ul>
+        </section>
+    </main>
+
+    <script>
+        // Login Wall Guard
+        const user = JSON.parse(localStorage.getItem('currentUser'));
+        if (!user) {
+            alert('Access Denied! Please login first.');
+            window.location.href = 'index.html';
+        }
+
+        // Customization Persistence
+        if (localStorage.getItem('customTitle')) {
+            document.getElementById('headerTitle').innerText = localStorage.getItem('customTitle');
+        }
+
+        document.getElementById('saveCustomizationBtn').addEventListener('click', () => {
+            const newTitle = document.getElementById('editTitleInput').value;
+            if (newTitle) {
+                localStorage.setItem('customTitle', newTitle);
+                document.getElementById('headerTitle').innerText = newTitle;
+                alert('Academy name updated successfully!');
+            }
+        });
+
+        document.getElementById('logoutBtn').addEventListener('click', () => {
+            localStorage.removeItem('currentUser');
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+</html>
